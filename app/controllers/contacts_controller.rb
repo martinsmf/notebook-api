@@ -5,12 +5,12 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
-    render json: @contacts, methods: :author
+    render json: @contacts
   end
 
   # GET /contacts/1
   def show
-    render json: @contact.attributes.merge({ author: "Matheus" })
+    render json: @contact
   end
 
   # POST /contacts

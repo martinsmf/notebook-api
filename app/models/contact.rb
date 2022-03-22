@@ -14,4 +14,12 @@ class Contact < ApplicationRecord
   #     methods: [:author, :kind_description]
   #   )
   # end
+
+  def hello
+    I18n.t('hello')
+  end
+
+  def i18n
+    I18n.default_locale    
+  end
 end

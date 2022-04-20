@@ -4,16 +4,21 @@ class Contact < ApplicationRecord
   has_many :phones
   accepts_nested_attributes_for :phones
 
-  def birthdate_br
-      I18n.l(self.birthdate) unless self.birthdate.blank?
+  def as_json(options={})
+    h = super(options)
+    h[:birthdate] = I18n.l(self.birthdate) unless self.birthdate.blank?
+    h
   end
+  # def birthdate_br
+  #     I18n.l(self.birthdate) unless self.birthdate.blank?
+  # end
 
-  def to_br
-    { name: self.name,
-      email: self.email,
-      brithdate: (I18n.l(self.birthdate) unless self.birthdate.blank?)
-    }
-  end
+  # def to_br
+  #   { name: self.name,
+  #     email: self.email,
+  #     brithdate: (I18n.l(self.birthdate) unless self.birthdate.blank?)
+  #   }
+  # end
   # def author
   #   "Matheus"
   # end

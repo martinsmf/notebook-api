@@ -40,7 +40,7 @@ namespace :dev do
     puts "Cadastrando os addresses..."
 
     Contact.all.each do |contact|
-      address = Address.create(
+      Address.create(
         street: Faker::Address.street_address,
         city: Faker::Address.city,
         contact: contact,

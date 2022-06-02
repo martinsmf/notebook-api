@@ -13,6 +13,8 @@ gem "sqlite3"
 gem "puma", "~> 3.11"
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 gem "jwt"
+# Simple, multi-client and secure token-based authentication for Rails.
+gem "devise_token_auth"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

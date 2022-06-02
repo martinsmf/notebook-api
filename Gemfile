@@ -11,6 +11,9 @@ gem "rails-i18n", "~> 5.1"
 gem "sqlite3"
 # Use Puma as the app server
 gem "puma", "~> 3.11"
+# A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
+gem "jwt"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

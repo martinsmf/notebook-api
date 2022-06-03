@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :kinds
 
   scope module: "v1" do
-    resources :contacts, :constraints => lambda { |request| request.params[:version] == "1" } do
+    resources :contacts, :constraints => lambda { |request| request.headers["Accept"] == "application/vnd.api+json; version=1" } do
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: "relationships/kind"
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   scope module: "v2" do
-    resources :contacts, :constraints => lambda { |request| request.params[:version] == "2" } do
+    resources :contacts, :constraints => lambda { |request| request.headers["Accept"] == "application/vnd.api+json; version=2" } do
       resource :kind, only: [:show]
       resource :kind, only: [:show], path: "relationships/kind"
 

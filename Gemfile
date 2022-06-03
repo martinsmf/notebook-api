@@ -15,7 +15,9 @@ gem "puma", "~> 3.11"
 gem "jwt"
 # Simple, multi-client and secure token-based authentication for Rails.
 gem "devise_token_auth"
+# Translations for the devise gem
 gem "devise-i18n"
+gem "versionist"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

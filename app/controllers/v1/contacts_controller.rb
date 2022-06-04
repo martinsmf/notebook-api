@@ -19,7 +19,7 @@ module V1
       @contact = Contact.new(contact_params)
 
       if @contact.save
-        render json: @contact, include: [:kind, :phones, :address], status: :created, location: @contact
+        render json: @contact, include: [:kind, :phones, :address], status: :created, location: v1_contact_url(@contact)
       else
         render json: @contact.errors, status: :unprocessable_entity
       end

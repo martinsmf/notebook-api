@@ -3,36 +3,40 @@ Rails.application.routes.draw do
   resources :auths, only: [:create]
   resources :kinds
 
-  scope module: "v1" do
-    resources :contacts, :constraints => lambda { |request| request.headers["X-Version"] == "1.0" } do
-      resource :kind, only: [:show]
-      resource :kind, only: [:show], path: "relationships/kind"
+  constraints subdomain: "v1" do
+    scope module: "v1" do
+      resources :contacts do
+        resource :kind, only: [:show]
+        resource :kind, only: [:show], path: "relationships/kind"
 
-      resource :phones, only: [:show]
-      resource :phones, only: [:show], path: "relationships/phones"
+        resource :phones, only: [:show]
+        resource :phones, only: [:show], path: "relationships/phones"
 
-      resource :phone, only: [:update, :create, :destroy]
-      resource :phone, only: [:update, :create, :destroy], path: "relationships/phone"
+        resource :phone, only: [:update, :create, :destroy]
+        resource :phone, only: [:update, :create, :destroy], path: "relationships/phone"
 
-      resource :address, only: [:show, :update, :create, :destroy]
-      resource :address, only: [:show, :update, :create, :destroy], path: "relationships/address"
+        resource :address, only: [:show, :update, :create, :destroy]
+        resource :address, only: [:show, :update, :create, :destroy], path: "relationships/address"
+      end
     end
   end
 
-  scope module: "v2" do
-    resources :contacts, :constraints => lambda { |request| request.headers["X-Version"] == "2.0" } do
-      resource :kind, only: [:show]
-      resource :kind, only: [:show], path: "relationships/kind"
+  constraints subdomain: "v2" do
+    scope module: "v2" do
+      resources :contacts do
+        resource :kind, only: [:show]
+        resource :kind, only: [:show], path: "relationships/kind"
 
-      resource :phones, only: [:show]
-      resource :phones, only: [:show], path: "relationships/phones"
+        resource :phones, only: [:show]
+        resource :phones, only: [:show], path: "relationships/phones"
 
-      resource :phone, only: [:update, :create, :destroy]
-      resource :phone, only: [:update, :create, :destroy], path: "relationships/phone"
+        resource :phone, only: [:update, :create, :destroy]
+        resource :phone, only: [:update, :create, :destroy], path: "relationships/phone"
 
-      resource :address, only: [:show, :update, :create, :destroy]
-      resource :address, only: [:show, :update, :create, :destroy], path: "relationships/address"
+        resource :address, only: [:show, :update, :create, :destroy]
+        resource :address, only: [:show, :update, :create, :destroy], path: "relationships/address"
+      end
     end
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -3,13 +3,13 @@ module V1
     attributes :id, :name, :email, :birthdate #:author
 
     belongs_to :kind do
-      link(:related) { v2_contact_kind_url(object.id) }
+      link(:related) { v1_contact_kind_url(object.id) }
     end
     has_many :phones do
-      link(:related) { v2_contact_phones_url(object.id) }
+      link(:related) { v1_contact_phones_url(object.id) }
     end
     has_one :address do
-      link(:related) { v2_contact_address_url(object.id) }
+      link(:related) { v1_contact_address_url(object.id) }
     end
 
     # link(:self) { contact_url(object.id) }

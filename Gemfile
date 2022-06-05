@@ -17,7 +17,12 @@ gem "jwt"
 gem "devise_token_auth"
 # Translations for the devise gem
 gem "devise-i18n"
+# A plugin for versioning Rails based Restful APIs.
 gem "versionist"
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for ruby on rails
+gem "kaminari"
+# Link header pagination for rails and Grap APIs.
+#gem "api-pagination"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

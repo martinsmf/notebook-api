@@ -1,4 +1,8 @@
 class Contact < ApplicationRecord
+  #validations
+  validates_presence_of :kind
+  validates_presence_of :address
+
   #kaminari
   paginates_per 5
 

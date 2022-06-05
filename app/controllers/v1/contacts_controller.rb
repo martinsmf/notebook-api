@@ -13,6 +13,7 @@ module V1
 
       @contacts = Contact.all.page(page_number).per(per_page)
 
+      expires_in 30.seconds, public: true
       #paginate json: @contacts #, methods: :birthdate_br #, methods: [:hello, :i18n]
       render json: @contacts #, methods: :birthdate_br #, methods: [:hello, :i18n]
     end
